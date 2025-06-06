@@ -33,19 +33,19 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Mail className="mr-3 text-teal-400" size={20} />
-                <a href="mailto:abhinay.sharma@example.com" className="hover:text-teal-400 transition-colors">
-                  abhinay.sharma@example.com
+                <a href="mailto:panchalabhinay@gmail.com" className="hover:text-teal-400 transition-colors">
+                  panchalabhinay@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
                 <Linkedin className="mr-3 text-teal-400" size={20} />
-                <a href="https://linkedin.com/in/abhinay-sharma" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">
-                  linkedin.com/in/abhinay-sharma
+                <a href="https://linkedin.com/in/sharma-abhinay" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">
+                  linkedin.com/in/sharma-abhinay
                 </a>
               </div>
               <div className="flex items-center">
                 <Github className="mr-3 text-teal-400" size={20} />
-                <a href="https://github.com/abhinay-sharma" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">
+                <a href="https://github.com/abhinaysharma-devil" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">
                   github.com/abhinay-sharma
                 </a>
               </div>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <motion.a
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                href="https://twitter.com/abhinay-sharma" 
+                href="https://x.com/abhinay56806182" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
               </motion.a>
               <motion.a
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                href="https://linkedin.com/in/abhinay-sharma" 
+                href="https://linkedin.com/in/sharma-abhinay" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
@@ -84,8 +84,8 @@ const Footer: React.FC = () => {
               </motion.a>
               <motion.a
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                href="https://github.com/abhinay-sharma" 
-                target="_blank" 
+                href="https://github.com/abhinaysharma-devil"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
               >
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
               </motion.a>
               <motion.a
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                href="mailto:abhinay.sharma@example.com"
+                href="mailto:panchalabhinay@gmail.com"
                 className="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center hover:bg-teal-700 transition-colors"
               >
                 <Mail size={20} />

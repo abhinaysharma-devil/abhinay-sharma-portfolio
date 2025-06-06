@@ -35,6 +35,12 @@ export const expertiseAreas = [
     title: 'Cloud Services',
     description: 'Deploying and managing applications on cloud platforms with DevOps best practices.',
     icon: Cloud,
-    skills: ['GCP', 'AWS', 'Docker', 'CI/CD', 'Cloud Monitoring']
+    skills: ['GCP', 'Cloud Monitoring']
+  },
+  {
+    title: "Generative AI",
+    description: 'Leverage AI tools to enhance application functionality and user experience. Include features like smart recommendations and AI-based security. Also, generate the application based on the prompt.',
+    icon: Globe,
+    skills: ['Loveble AI', 'ChatGPT', 'Bolt', 'Replit']
   }
 ];

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from '../utils/framerMotionMock';
+import { motion } from 'framer-motion';
 import TechLogo from './TechLogo';
 import { techLogos } from '../data/techData';
-
+import abhinay_img from '../../public/abhinay_mg.png'
+ 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
   const fullText = "Building robust and scalable web solutions";
@@ -29,21 +30,40 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center md:text-left"
           >
-            <div className="mb-8 flex justify-center md:justify-start">
-              <div className="w-48 h-48 rounded-full overflow-hidden shadow-xl border-4 border-teal-500 dark:border-teal-400">
+            <motion.div 
+              className="mb-8 flex justify-center md:justify-start"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <motion.div 
+                className="w-48 h-48 rounded-full overflow-hidden shadow-xl border-4 border-teal-500 dark:border-teal-400"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              >
                 <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                  src={abhinay_img}
                   alt="Abhinay Sharma"
                   className="w-full h-full object-cover"
                 />
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+              </motion.div>
+            </motion.div>
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Abhinay Sharma
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-medium mb-6 text-teal-600 dark:text-teal-400">
+            </motion.h1>
+            <motion.h2 
+              className="text-2xl md:text-3xl font-medium mb-6 text-teal-600 dark:text-teal-400"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               Software Developer
-            </h2>
+            </motion.h2>
             <div className="h-16 mb-8">
               <p className="text-xl text-gray-700 dark:text-gray-300 relative after:content-['_'] after:inline-block after:w-0.5 after:h-6 after:bg-teal-600 dark:after:bg-teal-400 after:animate-blink after:ml-1 after:align-middle">
                 {typedText}

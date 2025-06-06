@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-xl"
             >
-              <div className="h-48 bg-gray-200 dark:bg-gray-600 flex items-center justify-center p-6">
+              <div className={`h-48 flex items-center justify-center p-6 ${project.background || 'bg-gray-200 dark:bg-gray-800'}`}>
                 {project.logo}
               </div>
               <div className="p-6">

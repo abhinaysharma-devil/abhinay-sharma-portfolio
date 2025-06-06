@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from '../utils/framerMotionMock';
+import { motion } from 'framer-motion';
 
 interface TechLogoProps {
   name: string;
@@ -9,41 +9,51 @@ interface TechLogoProps {
 }
 
 const TechLogo: React.FC<TechLogoProps> = ({ name, icon: Icon, index, total }) => {
-  // Calculate position in a circle
   const angle = (index / total) * Math.PI * 2;
-  const radius = 150; // Size of the circle
+  const radius = 150;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
   return (
     <motion.div
-      className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-      initial={{ x, y, opacity: 0 }}
+      className="absolute left-1/2 top-1/2"
+      initial={{ x, y, opacity: 0, scale: 0 }}
       animate={{ 
         x, 
         y, 
         opacity: 1,
+        scale: 1,
         transition: { 
           delay: index * 0.2,
-          duration: 0.5 
+          duration: 0.5,
+          type: "spring",
+          stiffness: 260,
+          damping: 20
         }
       }}
       whileHover={{ 
         scale: 1.2,
         zIndex: 10,
-        transition: { duration: 0.3 }
-      }}
-      style={{ 
-        transformOrigin: "center center",
-        transform: `translate(${x}px, ${y}px)` 
+        transition: { type: "spring", stiffness: 300, damping: 10 }
       }}
     >
-      <div className="w-14 h-14 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center p-3">
+      <motion.div 
+        className="w-14 h-14 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center p-3 relative group"
+        whileHover={{
+          rotate: 360,
+          transition: { duration: 0.6 }
+        }}
+      >
         <Icon className="w-full h-full text-teal-600 dark:text-teal-400" />
-      </div>
-      <span className="mt-2 text-sm font-medium bg-white dark:bg-gray-800 px-2 py-1 rounded-md shadow-sm text-gray-800 dark:text-white opacity-0 group-hover:opacity-100 transition-opacity">
-        {name}
-      </span>
+        <motion.span 
+          className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-2 py-1 rounded-md shadow-sm text-sm font-medium text-gray-800 dark:text-white whitespace-nowrap opacity-0 group-hover:opacity-100"
+          initial={{ y: 10, opacity: 0 }}
+          whileHover={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          {name}
+        </motion.span>
+      </motion.div>
     </motion.div>
   );
 };

@@ -1,80 +1,60 @@
-import React from 'react';
-import { ShoppingCart, BarChart, FileText, Server, Database, Users, MessageSquare, Layout } from 'lucide-react';
 
 export const companyProjects = [
   {
     id: 1,
-    name: 'E-Commerce Platform',
-    description: 'A scalable e-commerce solution with integrated payment processing and inventory management.',
-    logo: <ShoppingCart size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Express.js', 'MySQL', 'React'],
-    link: 'https://example.com/e-commerce'
+    name: 'UEP viewer',
+    description: 'Image viewer application with support for various image formats and user can also download images.',
+    logo: <img src="/UepLogo.2432d50f.png" alt="UEP viewer" className="w-46 h-16" />,
+    technologies: ['Node.js', 'Express.js', 'MySQL', 'React', "GCP Bucket"],
+    link: 'https://www.uepviewer.com',
+    background: 'bg-gray-600',
   },
   {
     id: 2,
-    name: 'Analytics Dashboard',
-    description: 'Real-time analytics dashboard for tracking business metrics and visualizing data trends.',
-    logo: <BarChart size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'D3.js', 'MySQL', 'Express.js'],
-    link: 'https://example.com/analytics'
+    name: 'Ananda Spa',
+    description: 'A spa and wellness center website with booking and service management features.',
+    logo: <img src="/ananda_logo.svg" alt="Ananda" className="w-46 h-16" />,
+    technologies: ['Node.js', "React", 'MySQL', 'Express.js'],
+    link: 'https://www.anandaspa.com/',
+    background: 'bg-gray-200',
   },
   {
     id: 3,
-    name: 'Content Management System',
-    description: 'Custom CMS for enterprise clients with workflow management and publishing controls.',
-    logo: <FileText size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Express.js', 'MySQL', 'React'],
-    link: 'https://example.com/cms'
+    name: 'ZipGrid',
+    description: 'A society management platform with features for event management, member communication, and document sharing.',
+    logo: <img src="/zgimg.png" alt="ZG Image Viewer" className="w-30 h-10" />,
+    technologies: ['Node.js', 'Express.js', 'MySQL', 'React', 'DataStore'],
+    link: 'https://zipgrid.com/',
+    background: 'bg-gray-200',
   },
   {
     id: 4,
-    name: 'API Gateway Service',
-    description: 'Centralized API gateway for managing microservices and handling authentication.',
-    logo: <Server size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Express.js', 'GCP', 'Redis'],
-    link: 'https://example.com/api-gateway'
-  },
-  {
-    id: 5,
-    name: 'Data Pipeline System',
-    description: 'ETL pipeline for processing and transforming large datasets in real-time.',
-    logo: <Database size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'MySQL', 'Kafka', 'GCP'],
-    link: 'https://example.com/data-pipeline'
-  },
-  {
-    id: 6,
-    name: 'HR Management Platform',
-    description: 'Comprehensive HR solution for employee management, onboarding, and performance tracking.',
-    logo: <Users size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Express.js', 'MySQL', 'React'],
-    link: 'https://example.com/hr-platform'
+    name: 'Strikie',
+    description: 'A platform for managing and tracking sports events, teams, and players.',
+    logo: <img src="/strikie_logo.png" alt="Strikie" className="w-50 h-22" />,
+    technologies: ['Node.js', 'Express.js', 'GCP', 'React'],
+    link: 'https://strikie.com/',
+    background: 'bg-gray-600',  
   }
 ];
 
 export const personalProjects = [
   {
     id: 1,
-    name: 'Chat Application',
-    description: 'Real-time chat application with private and group messaging capabilities.',
-    logo: <MessageSquare size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Socket.io', 'Express.js', 'MongoDB'],
-    link: 'https://github.com/abhinay-sharma/chat-app'
+    name: 'TaxiFy',
+    description: 'A platform that provides users with information about tax benefits and tax slabs in India',
+    logo:  <img src="/taxify-logo-png.png" alt="TaxiFy" className="w-50 h-20" />,
+    technologies: ['React', 'Next.js', 'Tailwind CSS'],
+    link: 'https://taxify.co.in',
+    background: 'bg-gray-200',
   },
   {
     id: 2,
-    name: 'Personal Blog',
-    description: 'A markdown-based blog with syntax highlighting and responsive design.',
-    logo: <FileText size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['Node.js', 'Express.js', 'React', 'Markdown'],
-    link: 'https://github.com/abhinay-sharma/blog'
-  },
-  {
-    id: 3,
-    name: 'Portfolio Template',
-    description: 'Customizable portfolio template for developers to showcase their work.',
-    logo: <Layout size={64} className="text-teal-600 dark:text-teal-400" />,
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
-    link: 'https://github.com/abhinay-sharma/portfolio-template'
+    name: 'Furniture By Panchal',
+    description: 'A furniture e-commerce website that allows users to browse and purchase furniture online.',
+    logo: <img src="/fbp-logo-removebg-preview.png" alt="Furniture By Panchal" className="w-46 h-16" />,
+    technologies: ['Node.js', 'Express.js', 'React', 'Next.js', 'Tailwind CSS', "Supabase"],
+    link: 'https://www.furniturebypanchal.com',
+    background: 'bg-gray-200',
   }
 ];
