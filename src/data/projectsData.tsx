@@ -53,7 +53,7 @@ export const personalProjects = [
     name: 'Furniture By Panchal',
     description: 'A furniture e-commerce website that allows users to browse and purchase furniture online.',
     logo: <img src="/fbp-logo-removebg-preview.png" alt="Furniture By Panchal" className="w-46 h-16" />,
-    technologies: ['Node.js', 'Express.js', 'React', 'Next.js', 'Tailwind CSS', "Supabase"],
+    technologies: ['Node.js', 'Express.js', 'React', 'Next.js', 'Tailwind CSS', "Supabase", "Razorpay"],
     link: 'https://www.furniturebypanchal.com',
     background: 'bg-gray-200',
   }
