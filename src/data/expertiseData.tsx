@@ -1,4 +1,4 @@
-import { Server, Database, Globe, Code, Cpu, Cloud } from 'lucide-react';
+import { Server, Database, Globe, Code, Cpu, Cloud, IndianRupee } from 'lucide-react';
 
 export const expertiseAreas = [
   {
@@ -12,6 +12,12 @@ export const expertiseAreas = [
     description: 'Designing and optimizing database schemas for performance and scalability.',
     icon: Database,
     skills: ['MySQL', 'NoSQL', 'Database Optimization', 'Data Modeling', 'Query Performance']
+  },
+   {
+    title: "Payment Gateway Integration",
+    description: 'Integrating payment gateways for seamless and secure online transactions.',
+    icon: IndianRupee,
+    skills: ['Razorpay']
   },
   {
     title: 'Web Development',
