@@ -66,7 +66,7 @@ const LinkedInPostSection: React.FC<LinkedInPostSectionProps> = ({ id }) => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12 items-start justify-center">
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -109,7 +109,7 @@ const LinkedInPostSection: React.FC<LinkedInPostSectionProps> = ({ id }) => {
                 View full profile on LinkedIn <ExternalLink size={16} />
               </a>
             </div>
-          </motion.div> */}
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,7 +122,7 @@ const LinkedInPostSection: React.FC<LinkedInPostSectionProps> = ({ id }) => {
               {postUrl ? (
                 <>
                   <iframe
-                    src={"https://www.linkedin.com/embed/feed/update/urn:li:share:7239617223642800129?collapsed=1"}
+                    src={postUrl}
                     height="600"
                     width="50%"
                     frameBorder="0"
