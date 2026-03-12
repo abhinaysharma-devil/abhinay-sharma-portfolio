@@ -1,14 +1,112 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <link rel="icon" type="image/x-icon" href="./assets//favicon.ico" />
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhinay Sharma | Software Developer</title>
-    <meta name="description" content="Portfolio of Abhinay Sharma, Software Developer specializing in Node.js, Express.js, MySQL, and cloud technologies." />
-  </head>
-  <body>
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      /* Custom scrollbar for webkit browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      html.dark ::-webkit-scrollbar-track {
+        background: #1f2937; /* bg-gray-800 approx */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      html.dark ::-webkit-scrollbar-thumb {
+        background: #555;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      html.dark ::-webkit-scrollbar-thumb:hover {
+        background: #777;
+      }
+
+      /* Ensure styles for dynamically added classes with animation delays are picked up */
+      .animate-fade-in-up {
+        animation-name: fadeInUp;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+      }
+       .animate-slide-in-right {
+         animation-name: slideInRight;
+         animation-duration: 0.5s;
+         animation-fill-mode: forwards;
+         opacity: 0;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'custom-dark-bg': '#111827', // gray-900
+              'custom-dark-card': '#1f2937', // gray-800
+              'custom-accent': '#6366F1', // indigo-500
+              'custom-accent-hover': '#4F46E5', // indigo-600
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              orbitron: ['Orbitron', 'sans-serif'],
+            },
+            animation: {
+              'text-focus-in': 'text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+              'slide-in-right': 'slideInRight 0.5s ease-out forwards',
+              'pulse-slow': 'pulse-slow 5s infinite ease-in-out',
+            },
+            keyframes: {
+              'text-focus-in': {
+                '0%': { filter: 'blur(12px)', opacity: '0' },
+                '100%': { filter: 'blur(0px)', opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0px)' },
+              },
+              slideInRight: {
+                 '0%': { opacity: '0', transform: 'translateX(30px)' },
+                 '100%': { opacity: '1', transform: 'translateX(0px)' },
+              },
+              'pulse-slow': {
+                '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+                '50%': { opacity: '0.5', transform: 'scale(1.05)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.513.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="antialiased text-gray-900 dark:text-gray-100 bg-slate-100 dark:bg-custom-dark-bg">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
