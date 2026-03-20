@@ -55,7 +55,7 @@ const App: React.FC = () => {
         <ProjectsDisplay id="projects" title="Company Projects" projects={companyProjects} />
         <ProjectsDisplay title="Personal Projects" projects={personalProjects} isPersonal={true} />
         <TechnicalExpertiseSection id="expertise" expertiseAreas={expertiseAreas} />
-        <LinkedInPostSection id="linkedin-post" />
+        {/* <LinkedInPostSection id="linkedin-post" /> */}
       </main>
       <Footer id="contact" socialLinks={socialLinks} />
       <ScrollToTopButton />
