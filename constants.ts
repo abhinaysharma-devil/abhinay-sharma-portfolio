@@ -90,7 +90,7 @@ export const personalProjects: Project[] = [
     technologies: ['React', 'Vibecoding', 'TypeScript', 'Tailwind CSS', 'GCP'],
     background: "bg-gray-200",
     size: "w-46 h-16",
-    link: 'https://furniture-by-panchal-by-bolt-84hfqi272.vercel.app/'
+    link: 'https://furniture-by-panchal-by-bolt.vercel.app/'
   },
   {
     id: 'pers-proj-2',
