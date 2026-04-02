@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import TechStackSection from './components/TechStackSection';
@@ -8,7 +9,8 @@ import TechnicalExpertiseSection from './components/TechnicalExpertiseSection';
 import LinkedInPostSection from './components/LinkedInPostSection';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
-import { companyProjects, personalProjects, techStack, expertiseAreas, socialLinks } from './constants';
+import AirDraw from './components/AirDraw';
+import { companyProjects, personalProjects, genAiProjects, techStack, expertiseAreas, socialLinks } from './constants';
 import { Theme } from './types';
 
 const App: React.FC = () => {
@@ -46,7 +48,7 @@ const App: React.FC = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  return (
+  const HomePage = () => (
     <div className="flex flex-col min-h-screen bg-slate-100 dark:bg-custom-dark-bg transition-colors duration-500">
       <Navbar navLinks={navLinks} currentTheme={theme} toggleTheme={toggleTheme} />
       <main className="flex-grow">
@@ -54,12 +56,22 @@ const App: React.FC = () => {
         <TechStackSection id="tech-stack" techStack={techStack} />
         <ProjectsDisplay id="projects" title="Company Projects" projects={companyProjects} />
         <ProjectsDisplay title="Personal Projects" projects={personalProjects} isPersonal={true} />
+        <ProjectsDisplay title="Gen AI" projects={genAiProjects} isPersonal={true} />
         <TechnicalExpertiseSection id="expertise" expertiseAreas={expertiseAreas} />
         {/* <LinkedInPostSection id="linkedin-post" /> */}
       </main>
       <Footer id="contact" socialLinks={socialLinks} />
       <ScrollToTopButton />
     </div>
+  );
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/personal/airdraw" element={<AirDraw />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -9,6 +9,7 @@ import eyaLogo from './assets/eya.jpg'
 import taxifyLogo from './assets/taxify-logo-png.png'
 import fbpLogo from './assets/fbplogo.png'
 import giftoizLogo from './assets/gz.png'
+import AirDraw from './assets/airdraw.png';
 
 export const techStack: TechStackItem[] = [
   { id: 'nodejs', name: 'Node.js', Icon: Server, description: 'Event-driven, non-blocking I/O runtime for scalable server-side applications.', color: 'text-green-500' },
@@ -121,6 +122,19 @@ export const personalProjects: Project[] = [
     link: 'https://giftoiz.com',
     background: "bg-gray-600",
     size: "w-46 h-32",
+  },
+];
+
+export const genAiProjects: Project[] = [
+  {
+    id: 'genai-proj-1',
+    name: 'AirDraw',
+    logoUrl: AirDraw,
+    description: 'Draw in the air using hand gestures powered by AI. A computer vision project that lets you paint on a virtual canvas with just your hands.',
+    technologies: ['React', 'Gen AI', "AI Studio"],
+    background: 'bg-gradient-to-br from-purple-600 to-indigo-700',
+    size: 'w-full h-full',
+    route: '/personal/airdraw',
   },
 ];
 

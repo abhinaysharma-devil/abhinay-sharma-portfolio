@@ -20,6 +20,7 @@ export interface Project {
   description: string;
   technologies: string[];
   link?: string; // External link for personal projects
+  route?: string; // Internal route for navigation (e.g., /personal/airdraw)
 }
 
 export interface ExpertiseArea {

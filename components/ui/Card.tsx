@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Project } from '../../types';
-import { ExternalLink, Briefcase } from 'lucide-react'; // Using Briefcase as a generic project icon
+import { ExternalLink, Briefcase } from 'lucide-react';
 import { i } from 'motion/react-client';
 
 interface CardProps {
@@ -10,6 +11,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ project, isPersonal }) => {
+  const navigate = useNavigate();
   const CardContent: React.FC = () => (
     <>
       <div
@@ -66,11 +68,17 @@ const Card: React.FC<CardProps> = ({ project, isPersonal }) => {
           >
             <div className="mt-auto pt-2">
               <span className="inline-flex items-center text-sm font-medium text-custom-accent dark:text-sky-400 group-hover:underline">
-
                 View Project <ExternalLink size={16} className="ml-1" />
               </span>
             </div>
           </a>
+        )}
+        {isPersonal && project.route && (
+          <div className="mt-auto pt-2">
+            <span className="inline-flex items-center text-sm font-medium text-custom-accent dark:text-sky-400 group-hover:underline">
+              Open <ExternalLink size={16} className="ml-1" />
+            </span>
+          </div>
         )}
       </div>
     </>
@@ -78,11 +86,21 @@ const Card: React.FC<CardProps> = ({ project, isPersonal }) => {
 
   const commonClasses = "group bg-white dark:bg-custom-dark-card rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full transform hover:-translate-y-1";
 
+  if (isPersonal && project.route) {
+    return (
+      <div
+        onClick={() => navigate(project.route!)}
+        className={`${commonClasses} cursor-pointer`}
+        aria-label={`Open ${project.name}`}
+      >
+        <CardContent />
+      </div>
+    );
+  }
+
   if (isPersonal && project.link) {
     return (
       <div
-        // href={project.link}
-        // target="_blank"
         rel="noopener noreferrer"
         className={`${commonClasses}`}
         aria-label={`View ${project.name} project (opens in new tab)`}
