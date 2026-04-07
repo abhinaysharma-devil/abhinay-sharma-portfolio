@@ -11,7 +11,8 @@ import { Hands, Results } from '@mediapipe/hands';
 import { Camera as MediaPipeCamera } from '@mediapipe/camera_utils';
 import {
   Undo, Redo, Trash2, Download, Moon, Sun,
-  Hand, Camera, MousePointer2, AlertCircle, ArrowLeft,
+  Hand, Camera, MousePointer2, AlertCircle, ArrowLeft, HelpCircle, X,
+  Settings2
 } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -83,17 +84,17 @@ function useHandTracking({
       if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
         const landmarks = results.multiHandLandmarks[0];
 
-        const isIndexExtended  = landmarks[8].y  < landmarks[6].y;
+        const isIndexExtended = landmarks[8].y < landmarks[6].y;
         const isMiddleExtended = landmarks[12].y < landmarks[10].y;
-        const isRingExtended   = landmarks[16].y < landmarks[14].y;
-        const isPinkyExtended  = landmarks[20].y < landmarks[18].y;
+        const isRingExtended = landmarks[16].y < landmarks[14].y;
+        const isPinkyExtended = landmarks[20].y < landmarks[18].y;
 
         const dx = landmarks[8].x - landmarks[4].x;
         const dy = landmarks[8].y - landmarks[4].y;
         const pinchDistance = Math.sqrt(dx * dx + dy * dy);
 
-        const isFist     = !isIndexExtended && !isMiddleExtended && !isRingExtended && !isPinkyExtended;
-        const isOpenPalm =  isIndexExtended &&  isMiddleExtended &&  isRingExtended &&  isPinkyExtended;
+        const isFist = !isIndexExtended && !isMiddleExtended && !isRingExtended && !isPinkyExtended;
+        const isOpenPalm = isIndexExtended && isMiddleExtended && isRingExtended && isPinkyExtended;
 
         let gesture: Gesture = 'hover';
 
@@ -161,23 +162,23 @@ interface DrawingCanvasRef {
 
 const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
   ({ handData, color, strokeWidth, eraserWidth, width, height, onHistoryChange }, ref) => {
-    const canvasRef   = useRef<HTMLCanvasElement>(null);
-    const contextRef  = useRef<CanvasRenderingContext2D | null>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const contextRef = useRef<CanvasRenderingContext2D | null>(null);
     const isDrawingRef = useRef(false);
-    const lastPosRef   = useRef<{ x: number; y: number } | null>(null);
+    const lastPosRef = useRef<{ x: number; y: number } | null>(null);
 
-    const [history, setHistory]       = useState<ImageData[]>([]);
+    const [history, setHistory] = useState<ImageData[]>([]);
     const [historyStep, setHistoryStep] = useState(-1);
 
     // Init canvas on size change
     useEffect(() => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      canvas.width  = width;
+      canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
       if (!ctx) return;
-      ctx.lineCap  = 'round';
+      ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
       contextRef.current = ctx;
       const init = ctx.getImageData(0, 0, width, height);
@@ -191,7 +192,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
 
     const saveState = () => {
       const canvas = canvasRef.current;
-      const ctx    = contextRef.current;
+      const ctx = contextRef.current;
       if (!canvas || !ctx) return;
       const snap = ctx.getImageData(0, 0, canvas.width, canvas.height);
       setHistory(prev => {
@@ -220,7 +221,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
       },
       clear: () => {
         const canvas = canvasRef.current;
-        const ctx    = contextRef.current;
+        const ctx = contextRef.current;
         if (!canvas || !ctx) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         saveState();
@@ -243,7 +244,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
       if (!ctx || !handData) {
         if (isDrawingRef.current) {
           isDrawingRef.current = false;
-          lastPosRef.current   = null;
+          lastPosRef.current = null;
           saveState();
         }
         return;
@@ -272,7 +273,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
           } else {
             ctx.globalCompositeOperation = 'source-over';
             ctx.strokeStyle = color;
-            ctx.lineWidth   = strokeWidth;
+            ctx.lineWidth = strokeWidth;
           }
           ctx.stroke();
           lastPosRef.current = { x, y };
@@ -280,7 +281,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(
       } else {
         if (isDrawingRef.current) {
           isDrawingRef.current = false;
-          lastPosRef.current   = null;
+          lastPosRef.current = null;
           saveState();
         }
       }
@@ -338,17 +339,21 @@ export function AirDraw({ className }: AirDrawProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<DrawingCanvasRef>(null);
 
-  const [handData,    setHandData]    = useState<HandData | null>(null);
-  const [color,       setColor]       = useState(COLORS[0]);
+  const [handData, setHandData] = useState<HandData | null>(null);
+  const [color, setColor] = useState(COLORS[0]);
   const [strokeWidth, setStrokeWidth] = useState(STROKE_WIDTHS[1].value);
   const [eraserWidth, setEraserWidth] = useState(ERASER_WIDTHS[1].value);
-  const [isDarkMode,  setIsDarkMode]  = useState(false);
-  const [canUndo,     setCanUndo]     = useState(false);
-  const [canRedo,     setCanRedo]     = useState(false);
-  const [dimensions,  setDimensions]  = useState({
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [canUndo, setCanUndo] = useState(false);
+  const [canRedo, setCanRedo] = useState(false);
+  const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
+
+  // UI Toggle States
+  const [showGuide, setShowGuide] = useState(window.innerWidth > 768);
+  const [showControls, setShowControls] = useState(window.innerWidth > 768);
 
   const { isReady, error } = useHandTracking({ videoRef, onHandData: setHandData });
 
@@ -406,14 +411,14 @@ export function AirDraw({ className }: AirDrawProps) {
         {handData && (
           <div className={cn(
             'px-4 py-2 rounded-xl shadow-lg backdrop-blur-md flex items-center gap-2 font-medium transition-all',
-            handData.gesture === 'draw'  ? 'bg-blue-500 text-white' :
-            handData.gesture === 'erase' ? 'bg-red-500 text-white'  :
-            isDarkMode ? 'bg-gray-800/80 text-gray-300' : 'bg-white/80 text-gray-600'
+            handData.gesture === 'draw' ? 'bg-blue-500 text-white' :
+              handData.gesture === 'erase' ? 'bg-red-500 text-white' :
+                isDarkMode ? 'bg-gray-800/80 text-gray-300' : 'bg-white/80 text-gray-600'
           )}>
-            {handData.gesture === 'draw'  && '✏️ Drawing Mode'}
+            {handData.gesture === 'draw' && '✏️ Drawing Mode'}
             {handData.gesture === 'erase' && '🧽 Erase Mode'}
             {handData.gesture === 'hover' && '👆 Hovering'}
-            {handData.gesture === 'none'  && '✊ Paused'}
+            {handData.gesture === 'none' && '✊ Paused'}
           </div>
         )}
       </div>
@@ -455,7 +460,7 @@ export function AirDraw({ className }: AirDrawProps) {
           className="absolute pointer-events-none z-40 transition-transform duration-75 ease-out"
           style={{
             left: `${(1 - handData.x) * dimensions.width}px`,
-            top:  `${handData.y * dimensions.height}px`,
+            top: `${handData.y * dimensions.height}px`,
             transform: 'translate(-50%, -50%)',
           }}
         >
@@ -483,29 +488,73 @@ export function AirDraw({ className }: AirDrawProps) {
         </div>
       )}
 
+
+      {/* Guide Toggle Button */}
+      <button
+        onClick={() => setShowGuide(true)}
+        className={cn(
+          "absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full shadow-lg backdrop-blur-md transition-all duration-300",
+          isDarkMode ? "bg-gray-900/80 text-white" : "bg-white/80 text-gray-900",
+          showGuide ? "opacity-0 -translate-x-8 pointer-events-none" : "opacity-100 translate-x-0"
+        )}
+        aria-label="Open Guide"
+      >
+        <HelpCircle size={24} />
+      </button>
+
       {/* ── Gesture guide ── */}
       <div className={cn(
-        'absolute left-6 top-1/2 -translate-y-1/2 z-30 pointer-events-none flex flex-col gap-3 p-4 rounded-2xl backdrop-blur-md shadow-lg border transition-all duration-500',
-        isDarkMode ? 'bg-gray-900/80 border-gray-800 text-white' : 'bg-white/80 border-gray-200 text-gray-900',
-        isReady ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+        "absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 p-4 rounded-2xl backdrop-blur-md shadow-lg border transition-all duration-300",
+        isDarkMode ? "bg-gray-900/80 border-gray-800 text-white" : "bg-white/80 border-gray-200 text-gray-900",
+        showGuide ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-[120%] pointer-events-none"
       )}>
+        <button
+          onClick={() => setShowGuide(false)}
+          className="absolute -top-2 -right-2 p-1.5 rounded-full bg-red-500 text-white shadow-md hover:bg-red-600 transition-colors"
+          aria-label="Close Guide"
+        >
+          <X size={14} />
+        </button>
+
         <div className="flex items-center gap-2 border-b pb-2 border-gray-500/20">
           <Hand size={16} className={isDarkMode ? 'text-blue-400' : 'text-blue-600'} />
           <h3 className="font-bold text-xs uppercase tracking-wider opacity-80">Gestures</h3>
         </div>
         <ul className="flex flex-col gap-3 text-xs font-medium">
           <li className="flex items-center gap-3"><span className="text-lg">👌</span><span className="opacity-80">Pinch to Draw</span></li>
-          <li className="flex items-center gap-3"><span className="text-lg">✌️</span><span className="opacity-80">Detach to Erase</span></li>
+          <li className="flex items-center gap-3"><span className="text-lg">✌️</span><span className="opacity-80">Erase</span></li>
           <li className="flex items-center gap-3"><span className="text-lg">🖐️</span><span className="opacity-80">Palm to Hover</span></li>
           <li className="flex items-center gap-3"><span className="text-lg">✊</span><span className="opacity-80">Fist to Pause</span></li>
         </ul>
       </div>
 
       {/* ── Controls panel ── */}
+      <button 
+        onClick={() => setShowControls(true)}
+        className={cn(
+          "fixed right-4 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full shadow-lg backdrop-blur-md transition-all duration-300",
+          isDarkMode ? "bg-gray-900/80 text-white" : "bg-white/80 text-gray-900",
+          showControls ? "opacity-0 translate-x-8 pointer-events-none" : "opacity-100 translate-x-0"
+        )}
+        aria-label="Open Tools"
+      >
+        <Settings2 size={24} />
+      </button>
+
       <div className={cn(
-        'fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 p-3 rounded-2xl shadow-xl backdrop-blur-md transition-colors z-50',
-        isDarkMode ? 'bg-gray-900/80 text-white' : 'bg-white/80 text-gray-900'
+        "fixed right-4 md:right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 p-3 rounded-2xl shadow-xl backdrop-blur-md transition-all duration-300 z-50",
+        isDarkMode ? "bg-gray-900/80 text-white" : "bg-white/80 text-gray-900",
+        showControls ? "translate-x-0 opacity-100" : "translate-x-[120%] opacity-0 pointer-events-none"
       )}>
+
+      <button 
+          onClick={() => setShowControls(false)}
+          className="absolute -top-2 -left-2 p-1.5 rounded-full bg-red-500 text-white shadow-md hover:bg-red-600 transition-colors"
+          aria-label="Close Tools"
+        >
+          <X size={14} />
+        </button>
+
         {/* Color swatches */}
         <div className="grid grid-cols-2 gap-2">
           {COLORS.map((c) => (
