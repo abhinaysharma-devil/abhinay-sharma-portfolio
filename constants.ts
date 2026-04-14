@@ -10,6 +10,7 @@ import taxifyLogo from './assets/taxify-logo-png.png'
 import fbpLogo from './assets/fbplogo.png'
 import giftoizLogo from './assets/gz.png'
 import AirDraw from './assets/airdraw.png';
+import JetFighterGame from './components/jetFighterComp';
 
 export const techStack: TechStackItem[] = [
   { id: 'nodejs', name: 'Node.js', Icon: Server, description: 'Event-driven, non-blocking I/O runtime for scalable server-side applications.', color: 'text-green-500' },
@@ -135,6 +136,16 @@ export const genAiProjects: Project[] = [
     background: 'bg-gradient-to-br from-purple-600 to-indigo-700',
     size: 'w-full h-full',
     route: '/personal/airdraw',
+  },
+    {
+    id: 'genai-proj-2',
+    name: 'JetFighter Game',
+    logoUrl: "https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fimages%2FScreenshot%202026-04-14%20215734.png?alt=media&token=1fc60d3a-eea1-451a-90f4-a72d38a515d6",
+    description: 'A thrilling jet fighter game where players can engage in aerial combat and complete challenging missions.',
+    technologies: ['React', 'Gen AI', "AI Studio"],
+    background: 'bg-gradient-to-br from-purple-600 to-indigo-700',
+    size: 'w-full h-full',
+    route: '/personal/jetfighter',
   },
 ];
 

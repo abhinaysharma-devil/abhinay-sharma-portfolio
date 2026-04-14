@@ -12,6 +12,7 @@ import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import AirDraw from './components/AirDraw';
 import { companyProjects, personalProjects, genAiProjects, techStack, expertiseAreas, socialLinks } from './constants';
 import { Theme } from './types';
+import JetFighterGame from './components/jetFighterComp';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -70,6 +71,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/personal/airdraw" element={<AirDraw />} />
+        <Route path="/personal/jetfighter" element={<JetFighterGame />} />
       </Routes>
     </BrowserRouter>
   );
