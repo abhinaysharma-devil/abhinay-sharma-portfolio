@@ -162,7 +162,7 @@ const REGULAR_SOUND_FILES: Record<string, string> = {
   LORD_COMMANDER_1: 'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Flord_commander_sound_1_reg.mp3?alt=media&token=72db71d4-9b3f-4194-8a22-5c063c0cba62',
   LORD_COMMANDER_2: 'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Flord_commander_sound_2_reg.mp3?alt=media&token=10255d57-432e-461e-8523-87721c9684f5',
   LORD_COMMANDER_3: 'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Flord_commander_sound_3_reg.mp3?alt=media&token=44c80f08-e3ec-4060-917e-d470ff7f5db4',
-  BOSS_ENTRY:       'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fboss_entry_reg.mp3?alt=media&token=f01dfae9-807c-4822-9e76-602c93e0826c',
+  BOSS_ENTRY:       'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fboss_entry_reg.mp3?alt=media&token=6c277c46-4359-4cb3-97a7-6957358109e7',
   BOSS_APPEAR:      'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fboss_appeare_reg.mp3?alt=media&token=f6ae1aea-6375-4417-8df1-ec476b87d794',
   BOSS_BLAST:       'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fboss_blast.mp3?alt=media&token=aeb5b8ea-8e03-4787-8a68-dd5d85f208e8',
   BOSS_HIT:         'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fboss_hit_reg.mp3?alt=media&token=926ff6f8-e731-4e8d-8b9b-90ecceeab7d9',
