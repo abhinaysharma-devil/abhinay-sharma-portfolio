@@ -19,6 +19,8 @@ export interface Project {
   logoUrl: string; // URL for project logo (placeholder or actual)
   description: string;
   technologies: string[];
+  background?: string;
+  size?: string;
   link?: string; // External link for personal projects
   route?: string; // Internal route for navigation (e.g., /personal/airdraw)
 }

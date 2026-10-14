@@ -1,5 +1,5 @@
 import { TechStackItem, Project, ExpertiseArea, SocialLink } from './types';
-import { Code2, Server, Database, Cloud, Palette, FileCode, Linkedin, Github, Mail, Twitter, MonitorSmartphone, Webhook, Construction, Rocket, Cog, Lightbulb, ShieldCheck, Users } from 'lucide-react';
+import { Code2, Server, Database, Cloud, Palette, FileCode, Linkedin, Github, Mail, Twitter, MonitorSmartphone, Webhook, Construction, Rocket, Cog, Lightbulb, ShieldCheck, Users, Sparkles } from 'lucide-react';
 import uepLogo from './assets/uep.png'
 import anandaLogo from './assets/ananda_logo.svg'
 import zipgridLogo from './assets/zgimg.png'
@@ -9,7 +9,7 @@ import eyaLogo from './assets/eya.jpg'
 import taxifyLogo from './assets/taxify-logo-png.png'
 import fbpLogo from './assets/fbplogo.png'
 import giftoizLogo from './assets/gz.png'
-import AirDraw from './assets/airdraw.png';
+// import AirDraw from './assets/airdraw.png';
 import JetFighterGame from './components/jetFighterComp';
 
 export const techStack: TechStackItem[] = [
@@ -85,14 +85,14 @@ export const companyProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
-    id: 'pers-proj-1',
-    name: 'Furniture By Panchal',
-    logoUrl: fbpLogo,
-    description: 'A tool to quickly generate modern developer portfolio websites based on user input. (This project!)',
-    technologies: ['React', 'Vibecoding', 'TypeScript', 'Tailwind CSS', 'GCP'],
-    background: "bg-gray-200",
-    size: "w-46 h-16",
-    link: 'https://furniture-by-panchal-by-bolt.vercel.app/'
+    id: 'pers-proj-3',
+    name: 'ScrollWish',
+    logoUrl: 'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/scrollwish%2Fcard-templates%2F1791983925818_Screenshot_2026-10-14_184601-removebg-preview.png?alt=media&token=2a278095-5b81-49bf-9244-4b7efc368787',
+    description: 'A digital greeting card website that allows users to customize cards based on their preferences. It offers multiple card categories such as wedding invitations, birthday cards, and many more.',
+    technologies: ['TypeScript', 'Tailwind CSS', 'Vibecoding', 'Firebase'],
+    additional_link_key: ['See our wedding invitations →', 'Magical birthday Wish →'],
+    additional_link: ['https://www.scrollwish.com/editor/wedding-invite'],
+    link: 'https://scrollwish.com'
   },
   {
     id: 'pers-proj-2',
@@ -105,24 +105,73 @@ export const personalProjects: Project[] = [
     link: 'https://taxify.co.in'
   },
   {
-    id: 'pers-proj-3',
-    name: 'ScrollWish',
-    logoUrl: 'https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/scrollwish%2F1771786731439_scrollWish-digital-greeting-cards.jpeg?alt=media&token=2cff6d2b-71b5-430b-8f8b-006a294d4a89',
-    description: 'A digital greeting card website that allows users to customize cards based on their preferences. It offers multiple card categories such as wedding invitations, birthday cards, and many more.',
-    technologies: ['TypeScript', 'Tailwind CSS', 'Vibecoding', 'Firebase'],
-    additional_link_key: ['See our wedding invitations →', 'Magical birthday Wish →'],
-    additional_link: ['https://www.scrollwish.com/editor/wedding-invite'],
-    link: 'https://scrollwish.com'
+    id: 'pers-proj-1',
+    name: 'Furniture By Panchal',
+    logoUrl: fbpLogo,
+    description: 'A tool to quickly generate modern developer portfolio websites based on user input. (This project!)',
+    technologies: ['React', 'Vibecoding', 'TypeScript', 'Tailwind CSS', 'GCP'],
+    background: "bg-gray-200",
+    size: "w-46 h-16",
+    link: 'https://furniture-by-panchal-by-bolt.vercel.app/'
+  },
+  // {
+  //   id: 'pers-proj-4',
+  //   name: 'Giftoiz',
+  //   logoUrl: giftoizLogo,
+  //   description: 'We are Giftoiz, a creative brand specializing in personalized gifts that make every occasion special. From customized frames and handcrafted peg dolls to elegant wedding cards and more, we create thoughtful, one-of-a-kind pieces designed to bring joy and lasting memories. At Giftoiz, every gift tells a unique story made just for you.',
+  //   technologies: ['TypeScript', 'Tailwind CSS', 'Vibecoding', 'Firebase'],
+  //   link: 'https://giftoiz.com',
+  //   background: "bg-gray-600",
+  //   size: "w-46 h-32",
+  // },
+];
+
+export const openSourcePackages = [
+  {
+    id: 'pers-proj-5',
+    name: 'html-to-pdf-headless',
+    logoUrl: 'https://cdn.simpleicons.org/npm/CB3837',
+    description: 'An open-source Node.js package I created to generate PDF and DOCX files from HTML without headless browsers like Puppeteer. Supports CSS style inlining, tables, lists, and base64 images for generating invoices, reports, and downloadable documents.',
+    technologies: ['Node.js', 'pdfmake', 'JSDOM', 'docx'],
+    link: 'https://www.jsdelivr.com/package/npm/html-to-pdf-headless',
+    background: 'bg-white',
+    size: 'w-36 h-14',
+  },
+];
+
+export const careerTimeline = [
+  {
+    id: 'ilead',
+    period: '2022 - Present',
+    title: 'Software Engineer',
+    organization: 'iLead Analytics - Synapses XTL',
+    description: 'Building web applications across backend services, user interfaces, and cloud infrastructure.',
+    current: true,
   },
   {
-    id: 'pers-proj-4',
-    name: 'Giftoiz',
-    logoUrl: giftoizLogo,
-    description: 'We are Giftoiz, a creative brand specializing in personalized gifts that make every occasion special. From customized frames and handcrafted peg dolls to elegant wedding cards and more, we create thoughtful, one-of-a-kind pieces designed to bring joy and lasting memories. At Giftoiz, every gift tells a unique story made just for you.',
-    technologies: ['TypeScript', 'Tailwind CSS', 'Vibecoding', 'Firebase'],
-    link: 'https://giftoiz.com',
-    background: "bg-gray-600",
-    size: "w-46 h-32",
+    id: 'education',
+    period: '2018 - 2022',
+    title: 'Bachelor of Technology',
+    organization: 'Prestige Institute of Engineering Management and Research',
+    description: 'B.Tech education and the beginning of my software engineering journey.',
+    current: false,
+  },
+];
+
+export const achievements = [
+  {
+    id: 'employee-month',
+    title: 'Employee of the Month',
+    date: 'February 2025',
+    organization: 'iLead Analytics - Synapses XTL',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7314545607606452225/',
+  },
+  {
+    id: 'employee-quarter',
+    title: 'Employee of the Quarter',
+    date: 'Q4 2023',
+    organization: 'iLead Analytics - Synapses XTL',
+    link: 'https://lnkd.in/p/gJ3BSD_r',
   },
 ];
 
@@ -130,14 +179,14 @@ export const genAiProjects: Project[] = [
   {
     id: 'genai-proj-1',
     name: 'AirDraw',
-    logoUrl: AirDraw,
+    logoUrl: "https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/scrollwish%2Fcard-templates%2F1791984259553_Screenshot%202026-10-14%20185350.png?alt=media&token=7a26a432-b613-4854-b081-d30231dd6a83",
     description: 'Draw in the air using hand gestures powered by AI. A computer vision project that lets you paint on a virtual canvas with just your hands.',
     technologies: ['React', 'Gen AI', "AI Studio"],
     background: 'bg-gradient-to-br from-purple-600 to-indigo-700',
     size: 'w-full h-full',
     route: '/personal/airdraw',
   },
-    {
+  {
     id: 'genai-proj-2',
     name: 'JetFighter Game',
     logoUrl: "https://firebasestorage.googleapis.com/v0/b/global-bucket-for-devils-projects/o/jetfighter%2Fimages%2FScreenshot%202026-04-14%20215734.png?alt=media&token=1fc60d3a-eea1-451a-90f4-a72d38a515d6",
@@ -170,6 +219,13 @@ export const expertiseAreas: ExpertiseArea[] = [
     Icon: Construction, // Or Cloud / ShieldCheck if more appropriate
     description: 'Experience with cloud platforms like GCP and AWS for deploying and managing applications. Familiar with CI/CD pipelines, containerization (Docker), and infrastructure as code principles.',
     skills: ['GCP', 'AWS (EC2, S3)', 'Docker', 'Kubernetes (Basic)', 'CI/CD (Jenkins/GitHub Actions)', 'Git']
+  },
+  {
+    id: 'ai-assisted-development',
+    title: 'AI-Assisted Development',
+    Icon: Sparkles,
+    description: 'Using AI coding assistants and prompt-driven workflows to prototype ideas, build interfaces, and support day-to-day development. Hands-on experience with GitHub Copilot, Lovable, v0, and Claude for iterative, AI-assisted development, including vibe coding.',
+    skills: ['GitHub Copilot', 'Lovable', 'v0', 'Claude', 'Prompt-Driven Development', 'Rapid Prototyping', 'Vibe Coding']
   },
   {
     id: 'problem-solving',

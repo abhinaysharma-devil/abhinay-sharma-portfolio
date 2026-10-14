@@ -8,6 +8,13 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        watch: {
+          usePolling: true,
+          awaitWriteFinish: {
+            stabilityThreshold: 200,
+            pollInterval: 100,
+          },
+        },
       },
       plugins: [react()],
       define: {
