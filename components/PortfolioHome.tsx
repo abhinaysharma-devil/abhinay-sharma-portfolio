@@ -81,7 +81,7 @@ export default function PortfolioHome({ theme, toggleTheme }: { theme: Theme; to
                 <div className="intro-grid" aria-hidden="true" />
                 <div className="portrait-field"><img src={portrait} alt="Abhinay Sharma" fetchPriority="high" /></div>
                 <div className="page-width intro-content">
-                    <p className="eyebrow"><span className="status-dot" /> Software engineer at iLead Analytics</p>
+                    <p className="eyebrow"><span className="status-dot" /> Software Developer at iLead Analytics</p>
                     <h1 id="intro-title">Abhinay<br />Sharma<span>.</span></h1>
                     <p className="intro-description">Thoughtful interfaces.<br />Dependable backends.<br /><strong>Useful things, built well.</strong></p>
                     <div className="intro-actions">

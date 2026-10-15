@@ -143,7 +143,7 @@ export const careerTimeline = [
   {
     id: 'ilead',
     period: '2022 - Present',
-    title: 'Software Engineer',
+    title: 'Software Developer',
     organization: 'iLead Analytics - Synapses XTL',
     description: 'Building web applications across backend services, user interfaces, and cloud infrastructure.',
     current: true,
