@@ -5,6 +5,13 @@ import PortfolioHome from './components/PortfolioHome';
 import AirDraw from './components/AirDraw';
 import { Theme } from './types';
 import JetFighterGame from './components/jetFighterComp';
+import AdminPage from './components/admin/AdminPage';
+import { useVisitorTracker } from './hooks/useVisitorTracker';
+
+const VisitorTrackerWrapper: React.FC = () => {
+  useVisitorTracker();
+  return null;
+};
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -34,10 +41,12 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <VisitorTrackerWrapper />
       <Routes>
         <Route path="/" element={<PortfolioHome theme={theme} toggleTheme={toggleTheme} />} />
         <Route path="/personal/airdraw" element={<AirDraw />} />
         <Route path="/personal/jetfighter" element={<JetFighterGame />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );

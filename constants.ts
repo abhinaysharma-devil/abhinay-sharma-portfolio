@@ -91,8 +91,8 @@ export const personalProjects: Project[] = [
     description: 'A digital greeting card website that allows users to customize cards based on their preferences. It offers multiple card categories such as wedding invitations, birthday cards, and many more.',
     technologies: ['TypeScript', 'Tailwind CSS', 'Vibecoding', 'Firebase'],
     additional_link_key: ['See our wedding invitations →', 'Magical birthday Wish →'],
-    additional_link: ['https://www.scrollwish.com/editor/wedding-invite'],
-    link: 'https://scrollwish.com'
+    additional_link: ['https://www.scrollwish.com/editor/wedding-invite?utm_source=portfolio'],
+    link: 'https://scrollwish.com?utm_source=portfolio'
   },
   {
     id: 'pers-proj-2',

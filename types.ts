@@ -41,3 +41,65 @@ export interface SocialLink {
 }
 
 export type Theme = 'light' | 'dark';
+
+export interface VisitorLog {
+  id?: string;
+  _id?: string;
+  ip: string;
+  isUniqueIp: boolean;
+  visitCount: number;
+  timestamp: string;
+  path: string;
+  referrer: string;
+  browser: {
+    name: string;
+    version: string;
+  };
+  os: {
+    name: string;
+    version?: string;
+  };
+  device: {
+    type: 'Desktop' | 'Mobile' | 'Tablet' | 'Unknown';
+  };
+  screen: {
+    width: number;
+    height: number;
+    resolution: string;
+  };
+  viewport: {
+    width: number;
+    height: number;
+  };
+  language: string;
+  timezone: string;
+  sessionId?: string;
+  userAgent: string;
+  location?: {
+    country?: string;
+    countryCode?: string;
+    city?: string;
+    region?: string;
+  };
+  firstVisitAt?: string;
+  lastVisitAt?: string;
+}
+
+export interface VisitorStats {
+  totalVisits: number;
+  uniqueVisitors: number;
+  todayVisits: number;
+  topBrowsers: { name: string; count: number }[];
+  topOperatingSystems: { name: string; count: number }[];
+  topDevices: { type: string; count: number }[];
+  topPaths: { path: string; count: number }[];
+}
+
+export interface VisitorApiResponse {
+  success: boolean;
+  message?: string;
+  logs?: VisitorLog[];
+  stats?: VisitorStats;
+  dbConnected?: boolean;
+}
+
