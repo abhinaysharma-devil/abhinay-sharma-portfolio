@@ -9,6 +9,8 @@ const seenIpsInMemory = new Map<string, { count: number; firstSeen: string }>();
 // Simple secret for admin token validation
 const ADMIN_SECRET = process.env.ADMIN_JWT_SECRET || 'abhinay-portfolio-admin-secret-2026';
 
+console.log(">>>>>>>>>1 test >>>>>>>>>")
+
 export function getAdminPassword(): string {
   return process.env.ADMIN_PASSWORD || 'admin123';
 }

@@ -1,9 +1,4 @@
 import { MongoClient, Db } from 'mongodb';
-import dotenv from 'dotenv';
-
-// Ensure .env and .env.local are loaded in Node environment
-dotenv.config({ path: '.env.local' });
-dotenv.config();
 
 let client: MongoClient | null = null;
 let clientPromise: Promise<MongoClient> | null = null;
