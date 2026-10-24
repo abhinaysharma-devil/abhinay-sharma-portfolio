@@ -137,13 +137,14 @@ export function sendJsonResponse(
     }
   }
 
-  // If Vercel-style response helper exists
-  if (typeof (res as any).status === 'function') {
-    (res as any).status(statusCode);
-    if (typeof (res as any).json === 'function') {
-      (res as any).json(responseBody);
+  // If Vercel/Express response helper exists
+  try {
+    if (typeof (res as any).status === 'function' && typeof (res as any).json === 'function') {
+      (res as any).status(statusCode).json(responseBody);
       return;
     }
+  } catch (err) {
+    // Fallback to native http.ServerResponse
   }
 
   const json = JSON.stringify(responseBody);

@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { getDatabase, isMongoConfigured, testMongoConnection } from './db';
-import { VisitorLog, VisitorStats } from '../types';
+import type { VisitorLog, VisitorStats } from '../types';
 
 // In-memory fallback if MongoDB is not connected yet
 const inMemoryLogs: VisitorLog[] = [];
@@ -9,7 +9,6 @@ const seenIpsInMemory = new Map<string, { count: number; firstSeen: string }>();
 // Simple secret for admin token validation
 const ADMIN_SECRET = process.env.ADMIN_JWT_SECRET || 'abhinay-portfolio-admin-secret-2026';
 
-console.log(">>>>>>>>>1 test >>>>>>>>>")
 
 export function getAdminPassword(): string {
   return process.env.ADMIN_PASSWORD || 'admin123';

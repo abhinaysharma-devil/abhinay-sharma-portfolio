@@ -4,22 +4,6 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/api/visitors",
-      "destination": "/api/visitors"
-    },
-    {
-      "source": "/api/admin/verify",
-      "destination": "/api/admin/verify"
-    },
-    {
-      "source": "/api/admin/logs",
-      "destination": "/api/admin/logs"
-    },
-    {
-      "source": "/api/admin/status",
-      "destination": "/api/admin/status"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
